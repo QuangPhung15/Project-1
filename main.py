@@ -50,8 +50,27 @@
 	#call winner deciding function
 
 #define any variables that need to use
+intro = """Now we're going to play TOTALITY:
+Players will choose a number of rounds to play.
+
+Player 1 will roll 3 dice.
+They are trying to get the highest total possible on the three dice,
+but dice with the same value MUST be multiplied together!
+Example: 332 --> 3 * 3 + 2 --> score of 11
+
+After rolling 3 dice, Player 1 has the option to end their turn
+or re-roll 1 of the dice in an attempt to get a higher score.
+
+Player 2 then gets a turn to do the same thing.
+After player 2 has finished, the final scores are compared to determine the winner.
+The player with a higher score receives 1 point for the round.
+
+Points are totaled after the final round and the winner will be declared.
+.............................................................................
+Now let's start the game \n"""
 
 #print game's rule
+print(intro)
 
 #input players' names
 
