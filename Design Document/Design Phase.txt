@@ -1,0 +1,33 @@
+#This project05 is done by Quang and Hoa
+a. The program will first print out the rule of the game and ask the player for the number of rounds. The program then defines the roll_dice() function, player_turn() function, player_round() function, player_game() function, and finally decides the winner.
+
+b. We will use pseudo code to describe the structure of the program.
+
+c. 
+# Name
+# import library, module
+
+# def roll dice function
+# loop random number from 1 to dice side 3 times
+
+# def player turn function
+# call roll dice function
+# print 3 numbers
+# ask players if they want to re-roll
+# re-roll
+# print total point
+# end turn
+
+# def player round function
+# loop call player turn function 2 times
+# compare 2 total points
+# decide who is the winner of the round
+
+# def player game function
+# tie-break until find 1 winner
+# print the winner name
+
+# print game rule
+# input the number of rounds
+# input the number of dice side
+# call player game function

@@ -1,0 +1,12 @@
+#This project05 is done by Quang and Hoa
+a. The completed program will create a game that first asks the players for the number of rounds they want to play rolls, rolls the dice 3 times and then prints out the 3 numbers, then asks the players if they want to roll any one dice again to have the higher score, then calculates the total point. Finally, it will compare two points and decide who is the winner.
+
+b. 	Variables that we will use in our program: dice, player_point1, player_point2, player_score1, player_score2, dice_list
+	Functions: roll_dice(), player_turn(), player_round(), player_game().
+
+c. 	roll_dice() function will roll the dice 3 times.
+	player_turn() function will call the roll_dice() function, put all the numbers in a list, then print out the number, ask the players if they want to re-roll, re-roll, calculate the total point, and finally print the total point and end the turn.
+	player_round() function will call the player_turn() function two times and then compare two total point.
+	player_game() function will call the player_round() function in the loop of the number of rounds, if their scores are equal, we will add more rounds until we find out the winner. Finally, decide who is the winner.
+
+d. We have already understood all the components.

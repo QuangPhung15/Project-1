@@ -1,0 +1,8 @@
+#This project05 is done by Quang and Hoa
+a. The challenge is to make a game, named Totality, which consists of 2 players, and each player will take a turn to roll 3 dice. In each round, the player who has a higher total point of 3 dice will earn a point and after a number of rounds, the player who earns more points will be the winner.
+
+b. The rule of the game.
+
+c. We clearly understood the challenge.
+
+d. Since we already understood the challenge, we would not need any resources to find the understanding.
