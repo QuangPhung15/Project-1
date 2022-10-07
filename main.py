@@ -52,14 +52,22 @@ def calPoint(nList):
 		total_point = nList[0] + nList[1] + nList[2]
 	return total_point
 
-#define player turn function
+def pTurn(sides, pName):
+	"""Play a player's turn by rolling 3 dice, then ask the player if they want to re-roll, and calculate the point"""
 	#call rolling dice function
+	orignRoll = roll_3D(sides)
 	#print out the point after 3 rolls
+	print(pName + "'s dice points after 3 rolls are " + str(orignRoll[0]) + ", " + str(orignRoll[1]) + ", and " + str(orignRoll[2]) + "\n")
 	#call re-roll dice function
+	newRoll = reRoll(orignRoll, sides)
 	#print 3 random numbers after re-roll
+	print(pName + "'s dice points after re-roll are " + str(newRoll[0]) + ", " + str(newRoll[1]) + ", and " + str(newRoll[2]) + "\n")
 	#calculate total point (calling calculating point function)
+	pPoint = calPoint(newRoll)
 	#print total
+	print(pName + "'s total point is " + str(pPoint))
 	#end the turn
+	return pPoint
 
 #define a calculating score function after each round
 	#compare 2 total points and decide the winner per round
@@ -107,6 +115,8 @@ Now let's start the game \n"""
 print(intro)
 
 #input players' names
+player_name1 = input("What is the Player 1 name ? \n>> ")
+player_name2 = input("What is the Player 2 name ? \n>> ")
 
 #input round number
 
@@ -114,9 +124,7 @@ print(intro)
 dice_sides = int(input("What is the total number of sides do you want your dice will have? \n>> "))
 
 #call game function
-orignRoll = roll_3D(dice_sides)
-print(orignRoll)
-newRoll = reRoll(orignRoll, dice_sides)
-print(newRoll)
-pPoint = calPoint(newRoll)
-print(pPoint)
+player_turn1 = pTurn(dice_sides, player_name1)
+print(player_turn1)
+player_turn2 = pTurn(dice_sides, player_name2)
+print(player_turn2)
