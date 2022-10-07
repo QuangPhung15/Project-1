@@ -91,14 +91,20 @@ def pRound(sides, pName1, pName2, pScore1, pScore2):
 	elif pPoint1 < pPoint2:
 		print("Player 2 is the winner of this round \n")
 	else:
-		print("Player 1 and Player 2 are draw this round. No one gets a point! \n")
+		print("Player 1 and Player 2 are drawn this round. No one gets a point! \n")
 	#call calculating players' scores function
 	pScore1, pScore2 = calScore(sides, pName1, pName2, pPoint1, pPoint2, pScore1, pScore2)
 	return pScore1, pScore2
 	
 #define tie-break round if, after the last round, 2 players still have the same score
+def tieBreak(sides, pName1, pName2, pScore1, pScore2):
+	"""Add 1 more round if 2 players have the same scores after input rounds to decide who is the final winner"""
 	#while the final scores of 2 players are equal
+	while (pScore1 - pScore2) == 0:
 		#call round function
+		pScore1, pScore2 = pRound(sides, pName1, pName2, pScore1, pScore2)
+	#call winner deciding function
+	decide_winner(pScore1, pScore2)
 
 #define the winner deciding function
 def decide_winner(pScore1, pScore2):
@@ -124,6 +130,7 @@ def pGame(sides, pName1, pName2, pScore1, pScore2, rounds):
 	#call winner deciding function
 	decide_winner(pScore1, pScore2)
 	#call tie-break round function
+	tieBreak(sides, pName1, pName2, pScore1, pScore2)
 	
 #define any variables that need to use
 intro = """Now we're going to play TOTALITY:
