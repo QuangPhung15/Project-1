@@ -95,6 +95,7 @@ def pRound(sides, pName1, pName2, pScore1, pScore2):
 	#call calculating players' scores function
 	pScore1, pScore2 = calScore(sides, pName1, pName2, pPoint1, pPoint2, pScore1, pScore2)
 	return pScore1, pScore2
+	
 #define tie-break round if, after the last round, 2 players still have the same score
 	#while the final scores of 2 players are equal
 		#call round function
@@ -106,7 +107,12 @@ def pRound(sides, pName1, pName2, pScore1, pScore2):
 		#print "player 2 is the winner"
 	
 #define game function
+def pGame(sides, pName1, pName2, pScore1, pScore2, rounds):
+	"""Play the entire game"""
 	#loop round function call according to the player's round input
+	for i in range(rounds):
+		pScore1, pScore2 = pRound(sides, pName1, pName2, pScore1, pScore2)
+		print("Round " + str(i + 1) + " : P1 - P2 : " + str(pScore1) + " - " + str(pScore2) + "\n")
 	#call tie-break round function
 	#call winner deciding function
 
@@ -141,10 +147,10 @@ player_name1 = input("What is the Player 1 name ? \n>> ")
 player_name2 = input("What is the Player 2 name ? \n>> ")
 
 #input round number
+game_round = int(input("What is the total number of rounds you want to play? \n>> "))
 
 #input dice's side
 dice_sides = int(input("What is the total number of sides do you want your dice will have? \n>> "))
 
 #call game function
-round = pRound(dice_sides, player_name1, player_name2, player_score1, player_score2)
-print(round)
+game = pGame(dice_sides, player_name1, player_name2, player_score1, player_score2, game_round)
