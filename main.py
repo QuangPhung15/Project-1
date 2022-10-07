@@ -15,14 +15,27 @@ def roll_3D(sides):
 	return dice_list
 
 #define a re-roll dice function
-	#ask players if they want to re-roll (and also which dice they want to re-roll) or not
+def reRoll(orgList, sides):
+	"""Re-roll one of the three die based on the choice of the player and return the new dice list"""
+	#ask player if they want to re-roll (and also which dice they want to re-roll) or not
+	dice_change = input("Type the dice number ('1', '2', '3') that you want to re-roll or just hit 'Enter/Return' to keep what you have \n>> ")
 	#while loop to make sure player only type '1', '2', '3', or hit 'Enter/Return' button
+	while dice_change != "1" and dice_change != "2" and dice_change != "3" and dice_change != "":
+		print("Please type only '1', '2', '3', or hit 'Enter/Return' button")
+		dice_change = input("Type the dice number ('1', '2', '3') that you want to re-roll or just hit 'Enter/Return' to keep what you have \n>> ")
 	#if players choose dice 1
+	if dice_change == "1":
 		#random a number from 1 to (the number of dice's side)
+		orgList[0] = randint(1, sides)
 	#if players choose dice 2
+	elif dice_change == "2":
 		#random a number from 1 to (the number of dice's side)
+		orgList[1] = randint(1, sides)
 	#if players choose dice 3
+	elif dice_change == "3":
 		#random a number from 1 to (the number of dice's side)
+		orgList[2] = randint(1, sides)
+	return orgList
 	
 #define a calculated point after 3 rolls and also re-roll function for each turn
 
@@ -90,3 +103,5 @@ dice_sides = int(input("What is the total number of sides do you want your dice 
 #call game function
 orignRoll = roll_3D(dice_sides)
 print(orignRoll)
+newRoll = reRoll(orignRoll, dice_sides)
+print(newRoll)
