@@ -1,10 +1,18 @@
 #This project05 is done by Quang and Hoa
 
 #import library, module
+from random import *
 
 #define rolling 3 dice function
+def roll_3D(sides):
+	"""Roll a die 3 times based on the number of sides of the dice, put them into a list, and return the list"""
+	dice_list = []
 	#loop 3 times
+	for i in range(3):
 		#random number from 1 to (input dice's side)
+		dice = randint(1, sides)
+		dice_list.append(dice)
+	return dice_list
 
 #define a re-roll dice function
 	#ask players if they want to re-roll (and also which dice they want to re-roll) or not
@@ -77,5 +85,8 @@ print(intro)
 #input round number
 
 #input dice's side
+dice_sides = int(input("What is the total number of sides do you want your dice will have? \n>> "))
 
 #call game function
+orignRoll = roll_3D(dice_sides)
+print(orignRoll)
