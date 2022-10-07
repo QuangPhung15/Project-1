@@ -38,6 +38,19 @@ def reRoll(orgList, sides):
 	return orgList
 	
 #define a calculated point after 3 rolls and also re-roll function for each turn
+def calPoint(nList):
+	"""Calculate the total point of 3 dice after 3 rolls and also re-roll for each turn""" 
+	if nList[0] == nList[1] == nList[2]:
+		total_point = nList[0] * nList[1] * nList[2]
+	elif nList[0] == nList[1]:
+		total_point = nList[0] * nList[1] + nList[2]
+	elif nList[1] == nList[2]:
+		total_point = nList[0] + nList[1] * nList[2]
+	elif nList[0] == nList[2]:
+		total_point = nList[0] * nList[2] + nList[1]
+	else:
+		total_point = nList[0] + nList[1] + nList[2]
+	return total_point
 
 #define player turn function
 	#call rolling dice function
@@ -105,3 +118,5 @@ orignRoll = roll_3D(dice_sides)
 print(orignRoll)
 newRoll = reRoll(orignRoll, dice_sides)
 print(newRoll)
+pPoint = calPoint(newRoll)
+print(pPoint)
