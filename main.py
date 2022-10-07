@@ -70,7 +70,14 @@ def pTurn(sides, pName):
 	return pPoint
 
 #define a calculating score function after each round
-	#compare 2 total points and decide the winner per round
+def calScore(sides, pName1, pName2, pPoint1, pPoint2, pScore1, pScore2):
+	"""Calculating the scores of the player after each round by comparing the players' points"""
+	#compare 2 total points per round
+	if pPoint1 > pPoint2:
+		pScore1 += 1
+	elif pPoint1 < pPoint2:
+		pScore2 += 1
+	return pScore1, pScore2
 
 #define round function
 	#call player turn function 2 times
@@ -111,6 +118,9 @@ Points are totaled after the final round and the winner will be declared.
 .............................................................................
 Now let's start the game \n"""
 
+player_score1 = 0
+player_score2 = 0
+
 #print game's rule
 print(intro)
 
@@ -128,3 +138,5 @@ player_turn1 = pTurn(dice_sides, player_name1)
 print(player_turn1)
 player_turn2 = pTurn(dice_sides, player_name2)
 print(player_turn2)
+score = calScore(dice_sides, player_name1, player_name2, player_turn1, player_turn2, player_score1, player_score2)
+print(score)
