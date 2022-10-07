@@ -80,9 +80,21 @@ def calScore(sides, pName1, pName2, pPoint1, pPoint2, pScore1, pScore2):
 	return pScore1, pScore2
 
 #define round function
-	#call player turn function 2 times
+def pRound(sides, pName1, pName2, pScore1, pScore2):
+	"""Play a whole round for each of the players and decide who is the winner of the round"""
+	#call player turn function 2 times for 2 players
+	pPoint1 = pTurn(sides, pName1)
+	pPoint2 = pTurn(sides, pName2)
 	#compare 2 total points and decide the winner per round
-
+	if pPoint1 > pPoint2:
+		print("Player 1 is the winner of this round \n")
+	elif pPoint1 < pPoint2:
+		print("Player 2 is the winner of this round \n")
+	else:
+		print("Player 1 and Player 2 are draw this round. No one gets a point! \n")
+	#call calculating players' scores function
+	pScore1, pScore2 = calScore(sides, pName1, pName2, pPoint1, pPoint2, pScore1, pScore2)
+	return pScore1, pScore2
 #define tie-break round if, after the last round, 2 players still have the same score
 	#while the final scores of 2 players are equal
 		#call round function
@@ -134,9 +146,5 @@ player_name2 = input("What is the Player 2 name ? \n>> ")
 dice_sides = int(input("What is the total number of sides do you want your dice will have? \n>> "))
 
 #call game function
-player_turn1 = pTurn(dice_sides, player_name1)
-print(player_turn1)
-player_turn2 = pTurn(dice_sides, player_name2)
-print(player_turn2)
-score = calScore(dice_sides, player_name1, player_name2, player_turn1, player_turn2, player_score1, player_score2)
-print(score)
+round = pRound(dice_sides, player_name1, player_name2, player_score1, player_score2)
+print(round)
