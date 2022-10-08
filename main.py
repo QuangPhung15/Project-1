@@ -66,6 +66,7 @@ def pTurn(sides, pName):
 	pPoint = calPoint(newRoll)
 	#print total
 	print(pName + "'s total point is " + str(pPoint))
+	print()
 	#end the turn
 	return pPoint
 
@@ -83,15 +84,19 @@ def calScore(sides, pName1, pName2, pPoint1, pPoint2, pScore1, pScore2):
 def pRound(sides, pName1, pName2, pScore1, pScore2):
 	"""Play a whole round for each of the players and decide who is the winner of the round"""
 	#call player turn function 2 times for 2 players
+	print("------------------- " + pName1 + "'s turn ------------------------------ \n")
+	input("Press Enter to start " + pName1 + "'s turn... \n")
 	pPoint1 = pTurn(sides, pName1)
+	print("------------------- " + pName2 + "'s turn ------------------------------ \n")
+	input("Press Enter to start " + pName2 + "'s turn... \n")
 	pPoint2 = pTurn(sides, pName2)
 	#compare 2 total points and decide the winner per round
 	if pPoint1 > pPoint2:
-		print("Player 1 is the winner of this round \n")
+		print(pName1 + " is the winner of this round \n")
 	elif pPoint1 < pPoint2:
-		print("Player 2 is the winner of this round \n")
+		print(pName2 + " is the winner of this round \n")
 	else:
-		print("Player 1 and Player 2 are drawn this round. No one gets a point! \n")
+		print(pName1 + " and " + pName2 + " are drawn this round. No one gets a point! \n")
 	#call calculating players' scores function
 	pScore1, pScore2 = calScore(sides, pName1, pName2, pPoint1, pPoint2, pScore1, pScore2)
 	return pScore1, pScore2
@@ -101,22 +106,24 @@ def tieBreak(sides, pName1, pName2, pScore1, pScore2):
 	"""Add 1 more round if 2 players have the same scores after input rounds to decide who is the final winner"""
 	#while the final scores of 2 players are equal
 	while (pScore1 - pScore2) == 0:
+		print("------------------- Tie-break Round ---------------------------------------------")
+		input("Press Enter to start the Tie-break round... \n")
 		#call round function
 		pScore1, pScore2 = pRound(sides, pName1, pName2, pScore1, pScore2)
-	#call winner deciding function
-	decide_winner(pScore1, pScore2)
+		#call winner deciding function
+		decide_winner(pScore1, pScore2, pName1, pName2)
 
 #define the winner deciding function
-def decide_winner(pScore1, pScore2):
+def decide_winner(pScore1, pScore2, pName1, pName2):
 	"""Decide the winner by comparing 2 players' scores"""
 	#if the player1's final score > player2's
 	if pScore1 > pScore2:
 		#print "player 1 is the winner"
-		print("Player 1 is the final winner! Congratulation!")
+		print(pName1 + " is the final winner! Congratulation!")
 	#else
 	elif pScore1 < pScore2:
 		#print "player 2 is the winner"
-		print("Player 2 is the final winner! Congratulation!")
+		print(pName2 + " is the final winner! Congratulation!")
 	else:
 		print("We will need a tie-break round to decide who is the winner of the game.")
 	
@@ -125,10 +132,13 @@ def pGame(sides, pName1, pName2, pScore1, pScore2, rounds):
 	"""Play the entire game"""
 	#loop round function call according to the player's round input
 	for i in range(rounds):
+		input("Press Enter to start the round... \n")
+		print("------------------- Round " + str(i + 1) + ". Set! Go! --------------------------")
+		print()
 		pScore1, pScore2 = pRound(sides, pName1, pName2, pScore1, pScore2)
 		print("Round " + str(i + 1) + " : P1 - P2 : " + str(pScore1) + " - " + str(pScore2) + "\n")
 	#call winner deciding function
-	decide_winner(pScore1, pScore2)
+	decide_winner(pScore1, pScore2, pName1, pName2)
 	#call tie-break round function
 	tieBreak(sides, pName1, pName2, pScore1, pScore2)
 	
@@ -157,16 +167,21 @@ player_score2 = 0
 
 #print game's rule
 print(intro)
+input("Press Enter to start the game... \n")
 
 #input players' names
 player_name1 = input("What is the Player 1 name ? \n>> ")
+print()
 player_name2 = input("What is the Player 2 name ? \n>> ")
+print()
 
 #input round number
 game_round = int(input("What is the total number of rounds you want to play? \n>> "))
+print()
 
 #input dice's side
 dice_sides = int(input("What is the total number of sides do you want your dice will have? \n>> "))
+print()
 
 #call game function
 game = pGame(dice_sides, player_name1, player_name2, player_score1, player_score2, game_round)
