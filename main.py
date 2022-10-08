@@ -136,7 +136,7 @@ def pGame(sides, pName1, pName2, pScore1, pScore2, rounds):
 		print("------------------- Round " + str(i + 1) + ". Set! Go! --------------------------")
 		print()
 		pScore1, pScore2 = pRound(sides, pName1, pName2, pScore1, pScore2)
-		print("Round " + str(i + 1) + " : P1 - P2 : " + str(pScore1) + " - " + str(pScore2) + "\n")
+		print("Round " + str(i + 1) + " : " + pName1 + " - " + pName2 + " : " + str(pScore1) + " - " + str(pScore2) + "\n")
 	#call winner deciding function
 	decide_winner(pScore1, pScore2, pName1, pName2)
 	#call tie-break round function
