@@ -1,0 +1,14 @@
+a. The completed code is in the main.py file
+b. The code is completely commented
+c. 
+i. The program successfully fullfil the requirement of the program. Moreover, it runs without any errors. The program was designed to be user-friendly which means it is easy for the user to run, understand and use the program. We also added While loop which allow user to re-enter the information without run the program over again. 
+
+ii. Our greatest challenge was to pass the return value from one function to another using "return". 
+
+iii. As we encountered our challenge, professor Lev Frucher helped us to understand how to use "return" by assigning the fruitful function to a variable and use it as a parameter of other functions.
+
+iv. At first, we worked out the logic flow of this challenge and see what we got to do. Then, we did the code and tried our best to solved all the problem we encounteredd during the process. At the end, we went through the process and answered the reflection together.
+
+v. We think we tried our best at this point but what we will improve if we have more time is the print out sentence after reroll that should not be printed our if the player does not want to reroll.
+
+vi. We can use the function of this challenge not only to creat the TOTALITY game but also applying those function to other games.
